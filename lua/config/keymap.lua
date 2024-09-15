@@ -6,3 +6,5 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<C-o>', builtin.commands, { noremap = true, silent = true })
 vim.keymap.set('n', '<C-p>', builtin.find_files, { noremap = true, silent = true })
 vim.keymap.set('n', '<C-g>', builtin.git_files, { noremap = true, silent = true })
+vim.keymap.set('n', '<C-[>', ':Neotree<CR>', { noremap = true, silent = true })
+
