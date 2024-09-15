@@ -16,7 +16,5 @@ vim.cmd([[ set expandtab ]])
 vim.cmd([[ set guicursor= ]])
 vim.cmd([[ set cursorline ]])
 vim.cmd([[ syntax on ]])
-vim.cmd([[ set bg=dark ]])
-vim.cmd([[ colorscheme dracula ]])
 -- Precisa dessa variavel?
 vim.cmd([[ let extension = expand('%:e') ]])
