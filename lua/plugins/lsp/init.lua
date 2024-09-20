@@ -13,10 +13,17 @@ local function config()
         		header = '',
         		prefix = '',
     		}
-}
+	}
+
+	require("mason").setup()
+	require("mason-lspconfig").setup{
+		ensure_installed = { "lua_ls", "eslint", "tsp_server"  },
+	}
+
 	
 
 end
+
 return {
     {
         'neovim/nvim-lspconfig',
@@ -26,4 +33,11 @@ return {
     -- Lua Deps
     {'williamboman/mason.nvim' },
     {'williamboman/mason-lspconfig.nvim'},
+    -- js/ts
+    {
+    	"pmizio/typescript-tools.nvim",
+  	dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  	opts = {},
+    },
+    { 'jose-elias-alvarez/null-ls.nvim' }
 }

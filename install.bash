@@ -15,3 +15,5 @@ chsh -s $(which zsh)
 
 # Instalar Neovim e Git
 sudo apt install neovim git -y
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
