@@ -11,14 +11,12 @@ return {
   config = function()
     require("neotest").setup({
       adapters = {
-        neotest = {
-          require("neotest-jest")({
-            jestCommand = "npm test -- --coverage --silent",
-            env = {
-              CI = true,
-            }
-          })
-        }
+        require("neotest-jest")({
+          jestCommand = "npm test -- --coverage --silent",
+          env = {
+            CI = true,
+          }
+        })
       }
     })
   end
