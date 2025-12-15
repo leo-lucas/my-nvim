@@ -52,11 +52,63 @@ map(
   end,
   { desc = "Run file test" }
 )
-map(
-  { "n" },
-  "<leader>to",
+
+map({ "n" },
+  "<leader>ta", 
+  function() 
+    require('neotest').run.run(vim.fn.getcwd()) 
+  end, 
+  {desc = "Run all tests" }
+)
+
+map({ "n" },
+  "<leadeer>tS",
   function()
+    require("neotest").run.stop()
+  end,
+  {desc = "Stop running tests"}
+)
+
+map({ "n" },
+  "<leader>ts",
+  function() 
+    require("neotest").summary.toggle() 
+  end, 
+  {desc = "Toggle test summary"}
+) 
+
+map({ "n" }, 
+  "<leader>twa", 
+  function() 
+    local neotest = require("neotest") 
+    local function watch_all_tests() 
+      local test_files = vim.fn.glob("src/**/*.spec,test].[ts,tsx]", false, true) 
+      for _, file in ipairs(test_files) do 
+        neotest.watch.toggle(file) 
+      end 
+    end 
+    watch_all_tests()
+  end,
+  {desc = "Run all tests in watch mode"}
+)
+map({ "n" },
+  "<leader>tc",
+  ":Coverage<CR>",
+  {desc = "Coverage"} 
+)
+
+map({ "n" }, 
+  "<leader>twf", 
+  function() 
+    require("neotest").watch.toggle(vim.fn.expand("%")) 
+  end, 
+  { desc = "Toggle watch test" } 
+)
+
+map({ "n" },
+  "<leader>to", 
+  function() 
     require("neotest").output.open()
   end,
-  { desc = "Test open output" }
+  { desc = "Show output" }
 )
