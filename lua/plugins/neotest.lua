@@ -13,6 +13,7 @@ return {
       adapters = {
         require("neotest-jest")({
           jestCommand = "npm test -- --coverage --silent",
+          jestConfigFile = "",
           env = {
             CI = true,
           }
