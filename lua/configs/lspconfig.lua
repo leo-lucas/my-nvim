@@ -4,7 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "ts_ls", "eslint", "lua_ls"}
+local servers = { "html", "cssls", "ts_ls", "eslint" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -16,8 +16,11 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-lspconfig.lua_ls.setup({
-  setetings = {
+lspconfig.lua_ls.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  settings = {
     Lua = {
       diagnostics = {
         globals = { "vim" },
@@ -27,10 +30,10 @@ lspconfig.lua_ls.setup({
       },
       telemetry = {
         enable = false,
-      }
-    }
-  }
-})
+      },
+    },
+  },
+}
 
 -- configuring single server, example: typescript
 -- lspconfig.ts_ls.setup {
